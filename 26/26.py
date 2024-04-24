@@ -1,6 +1,3 @@
-from functools import lru_cache
-
-@lru_cache(maxsize=None)
 def find_index(lst, n):
     left, right = 0, len(lst) - 1
     while left <= right:
@@ -9,13 +6,12 @@ def find_index(lst, n):
             right = mid - 1
         else:
             left = mid + 1
-    return left if left < 10 ** 5 else left
+    return left
 
 f = open('26.txt').readlines()
 n, groups, classrooms = int(f[0]), list(map(int, f[1].split())), list(map(int, f[2].split()))
 groups.sort()
 classrooms.sort()
-groups = tuple(groups)
 k = 1
 flag = 0
 for i in range(n):
